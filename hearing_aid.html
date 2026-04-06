@@ -1,0 +1,116 @@
+<a href="index.html#hearing_aid-project"
+   style="
+       position: fixed;
+       top: 20px;
+       right: 20px;
+       background: #222;
+       color: #fff;
+       padding: 12px 18px;
+       border-radius: 6px;
+       text-decoration: none;
+       font-weight: 600;
+       box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+       z-index: 9999;
+   ">
+   ← Back to Projects
+</a>
+
+<div class="project">
+
+    <h2>Transistor-Based Hearing Aid with Automatic Gain Control</h2>
+
+    <h3>Project Overview</h3>
+    <p>
+        This project presents a compact hearing aid implemented entirely with <strong>discrete transistor stages</strong>. 
+        The system combines multi-stage amplification with an <strong>Automatic Gain Control (AGC)</strong> loop to 
+        maintain stable and comfortable audio output across a wide range of input signal levels.
+    </p>
+    <p>
+        The design emphasizes <strong>low-power operation</strong>, <strong>high sensitivity</strong>, and 
+        <strong>practical integration</strong>, operating from a single supply in the range of 0.8–4 V. 
+        A compact SMD version was later developed, reducing size by nearly 50%.
+    </p>
+
+    <h3>1. Hardware Design</h3>
+    <p>
+        The circuit consists of two <strong>preamplifier stages (VT1, VT2)</strong>, followed by an 
+        <strong>AGC control stage (VT3)</strong>, and a final <strong>output stage (VT4)</strong> driving 
+        a high-impedance earphone.
+    </p>
+
+    <p><strong>Key hardware elements:</strong></p>
+    <ul>
+        <li>Two-stage BJT preamplifier for low-level microphone signals</li>
+        <li>AGC loop using diode detection (VD1), control transistor (VT3), and RC network (C5, R8, R6)</li>
+        <li>Output stage driving a 25–50 Ω high-impedance earphone</li>
+        <li>Electret microphone with integrated internal biasing</li>
+        <li>Single-cell supply (NiMH / Li-ion)</li>
+    </ul>
+
+    <div style="display: flex; gap: 20px; margin-top: 20px;">
+        <div style="flex: 1; text-align: center;">
+            <img src="images/first_prototype_hear.png" alt="Hearing Aid" style="width: 100%; border-radius: 6px;">
+            <p><strong> First SMD Prototype</strong></p>
+        </div>
+
+        <div style="flex: 1; text-align: center;">
+            <img src="images/final_prototype_hear.png" alt="SMD Hearing Aid" style="width: 100%; border-radius: 6px;">
+            <p><strong>Final SMD Version</strong></p>
+        </div>
+    </div>
+
+    <h3>2. Automatic Gain Control (AGC) Operation</h3>
+    <p>
+        The AGC loop dynamically adjusts the amplifier gain using a feedback mechanism based on signal amplitude.
+    </p>
+
+    <p><strong>Operating principle:</strong></p>
+    <ul>
+        <li>
+            <strong>Quiet signal:</strong> Capacitor C5 charges through R8, keeping the control transistor (VT3) 
+            off and allowing maximum gain.
+        </li>
+        <li>
+            <strong>Signal detection:</strong> The amplified signal is rectified by diode VD1, producing an 
+            envelope proportional to signal amplitude.
+        </li>
+        <li>
+            <strong>Gain reduction:</strong> When the detected voltage exceeds ~0.6–0.7 V, VT3 turns on, 
+            discharging C5 through R6 and reducing the bias of the amplification stage → gain decreases.
+        </li>
+        <li>
+            <strong>Recovery:</strong> When the input signal decreases, VT3 turns off and C5 slowly recharges, 
+            restoring gain over time (defined by the RC time constant).
+        </li>
+    </ul>
+
+    <p>
+        This feedback mechanism provides <strong>automatic dynamic range compression</strong>, preventing 
+        loud signal distortion while maintaining sensitivity to weak signals.
+    </p>
+
+    <h3>3. Practical Considerations</h3>
+    <ul>
+        <li><strong>Earphone:</strong> Requires higher impedance (≈25–50 Ω); standard low-ohm earbuds are less suitable.</li>
+        <li><strong>Microphone:</strong> Electret type; correct polarity identification is required.</li>
+        <li><strong>Acoustic feedback:</strong> Maintain &gt;3 cm separation between microphone and earphone.</li>
+        <li><strong>Power:</strong> Operates from 0.8–4 V with low current consumption.</li>
+    </ul>
+
+    <h3>4. Skills Demonstrated</h3>
+    <div class="row">
+        <div class="col-6 col-12-small">
+            <ul>
+                <li><strong>Analog Circuit Design:</strong> Multi-stage BJT amplifiers</li>
+                <li><strong>Automatic Gain Control:</strong> Detection and feedback bias control</li>
+                <li><strong>Design:</strong> SMD layout and miniaturization</li>
+                <li><strong>Low-Power Electronics:</strong> Efficient battery-powered design</li>
+                <li><strong>Audio Signal Processing:</strong> Amplification and dynamic range control</li>
+                <li><strong>Prototyping:</strong> SMD assembly and debugging</li>
+                <li><strong>System Integration:</strong> Electrical + acoustic considerations</li>
+                <li><strong>Testing:</strong> Functional validation and evaluation</li>
+            </ul>
+        </div>
+    </div>
+
+</div>

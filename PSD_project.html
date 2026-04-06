@@ -1,0 +1,88 @@
+<a href="index.html#PSD_project"
+   style="
+       position: fixed;
+       top: 20px;
+       right: 20px;
+       background: #222;
+       color: #fff;
+       padding: 12px 18px;
+       border-radius: 6px;
+       text-decoration: none;
+       font-weight: 600;
+       box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+       z-index: 9999;
+   ">
+   ← Back to Projects
+</a>
+
+<div class="project">
+    <h2>Arduino + ADXL335 Vibration Measurement and Power Spectral Density (PSD) Analysis</h2>
+
+    <h3>1. Arduino to ADXL335 Wiring Connections</h3>
+    <p>
+        The ADXL335 accelerometer operates at <strong>3.3V</strong>, and its three analog outputs 
+        (X, Y, Z) are routed directly to the Arduino’s ADC inputs for sampling and processing.
+    </p>
+
+    <h3>2. Serial Communication Interface</h3>
+    <p>
+        A dedicated <strong>LabVIEW serial communication module</strong> initializes the COM port, 
+        applies the selected baud rate, and continuously reads incoming ADC data from the Arduino. 
+        The <strong>Analog Read VI</strong> retrieves raw voltage values for all three axes, which are 
+        then passed into the signal conditioning pipeline.
+    </p>
+
+    <h3>3. Signal Conditioning and Acceleration Conversion</h3>
+    <p>Each axis undergoes two key conditioning steps:</p>
+
+    <ul>
+        <li><strong>Voltage Bias Removal:</strong> The ADXL335 outputs a mid‑supply bias (1.65 V) at 0 g. This offset is subtracted from the measured voltage.</li>
+        <li><strong>Sensitivity Scaling:</strong> Using the sensor sensitivity (≈300 mV/g), acceleration is computed as:</li>
+    </ul>
+
+    <pre style="background:#111; color:#0f0; padding:12px; border-radius:6px;">
+a(g) = (V_measured − V_bias) / sensitivity
+    </pre>
+
+    <p>
+        Calibrated acceleration samples are appended to arrays using shift registers, forming 
+        time‑domain datasets for each axis.
+    </p>
+
+    <h3>4. Spectral Measurement (PSD) Processing</h3>
+    <p>
+        Three identical PSD modules process the X, Y, and Z acceleration arrays. Each module computes:
+    </p>
+
+    <ul>
+        <li>Frequency vector</li>
+        <li>PSD amplitude</li>
+        <li>Averaged spectral results</li>
+    </ul>
+
+    <p>
+        The PSD reveals dominant vibration frequencies and provides insight into system dynamics 
+        across the <strong>1–1000 Hz</strong> range.
+    </p>
+
+    <h3>5. Execution Management and Controls</h3>
+    <p>The system includes three independent stop mechanisms:</p>
+
+    <ul>
+        <li><strong>Run Timer:</strong> Defines total acquisition duration based on sampling rate and user‑selected run time.</li>
+        <li><strong>Main Loop Stop:</strong> Terminates data acquisition and serial communication.</li>
+        <li><strong>Spectral Averaging Stop:</strong> Halts PSD processing while allowing continued data collection.</li>
+    </ul>
+
+    <h3>6. Results</h3>
+    <p><strong>Time‑Domain Acceleration:</strong> The system produced stable tri‑axial acceleration readings with expected noise characteristics over a 3‑minute run.</p>
+    <p><strong>Power Spectral Density:</strong> PSD plots showed clear frequency peaks and accurate spectral distribution across all axes, confirming the system’s ability to capture and analyze vibration signatures.</p>
+
+    <h3>7. Conclusion</h3>
+    <p>
+        The developed system successfully integrates Arduino‑based data acquisition with LabVIEW 
+        signal processing to deliver real‑time vibration monitoring and PSD analysis. It provides 
+        reliable acceleration measurements, calibrated outputs, and meaningful frequency‑domain 
+        insights suitable for vibration diagnostics and structural monitoring.
+    </p>
+</div>

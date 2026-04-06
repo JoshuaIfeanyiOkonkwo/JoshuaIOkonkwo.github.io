@@ -1,0 +1,143 @@
+<a href="index.html#green_house-project"
+   style="
+       position: fixed;
+       top: 20px;
+       right: 20px;
+       background: #222;
+       color: #fff;
+       padding: 12px 18px;
+       border-radius: 6px;
+       text-decoration: none;
+       font-weight: 600;
+       box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+       z-index: 9999;
+   ">
+   ← Back to Projects
+</a>
+
+<div class="project">
+
+    <h2>Smart Greenhouse Controller (soil moisture, light, humidity, temperature), IoT based system</h2>
+
+    <h3>Project Introduction</h3>
+    <p>
+    This project is an <strong>IoT‑enabled smart greenhouse controller system</strong> built around an <strong>ESP32</strong> microcontroller. It automates plant care by monitoring and controlling key environmental parameters such as temperature, humidity, soil moisture, and light. The system combines <strong>sensor data</strong>, <strong>automation logic</strong>, and <strong>cloud connectivity</strong> to simplify indoor farming and improve plant growth.
+    </p>
+    <p>
+    This report demonstrates how to integrate sensors, actuators, and an IoT platform (Blynk) into a complete, remotely monitored greenhouse solution.
+    </p>
+
+    <!-- IMAGE ROW (3D model / greenhouse photo) -->
+    <div style="display: flex; gap: 20px; margin-top: 20px;">
+        <div style="flex: 1; text-align: center;">
+            <img src="images/smart_green_house.png" alt="3D Model Isometric View" style="width: 100%; border-radius: 6px;">
+            <p><strong>Smart greenhouse garden</strong></p>
+        </div>
+    </div>
+
+    <h3>1. Project Overview & Challenges</h3>
+    <p>
+        The goal of the system is to maintain optimal growing conditions automatically, while still allowing 
+        remote monitoring and manual control. During development, several engineering challenges were addressed:
+    </p>
+    <ul>
+        <li><strong>Sensor calibration:</strong> Achieving accurate and consistent readings from DHT22, soil moisture, and light sensors.</li>
+        <li><strong>Power management:</strong> Designing for 24/7 operation, including battery‑powered use.</li>
+        <li><strong>Data synchronization:</strong> Keeping ESP32 and Blynk cloud data in sync despite intermittent connectivity.</li>
+        <li><strong>Component integration:</strong> Combining sensors, pumps, fans, relays, and lights into a cohesive system.</li>
+        <li><strong>Environmental robustness:</strong> Handling changing light, temperature, and humidity conditions inside the greenhouse.</li>
+    </ul>
+
+    <h3>2. Key Components</h3>
+    <p><strong>Core hardware and software elements:</strong></p>
+    <ul>
+        <li><strong>ESP32 Board:</strong> Central microcontroller for data processing and WiFi connectivity</li>
+        <li><strong>DHT22 Sensor:</strong> Measures temperature and humidity</li>
+        <li><strong>Soil Moisture Sensor:</strong> Detects dry/wet soil conditions</li>
+        <li><strong>Photoresistor:</strong> Monitors ambient light levels</li>
+        <li><strong>Submersible Pump:</strong> Automated irrigation control</li>
+        <li><strong>2 × 5 V Mini Fans:</strong> Temperature and humidity control</li>
+        <li><strong>4‑Channel Relay Module:</strong> Switches pump, fans, and grow lights</li>
+        <li><strong>LED Grow Lights:</strong> Provides artificial light for plant growth</li>
+        <li><strong>Lithium Batteries:</strong> Enables off‑grid operation</li>
+        <li><strong>Blynk IoT Platform:</strong> Remote monitoring and control dashboard</li>
+    </ul>
+
+    <h3>3. System Architecture</h3>
+    <p>
+        The ESP32 reads sensor data and applies automation rules to control actuators. Real‑time data and 
+        control commands are synchronized with the <strong>Blynk cloud</strong>, allowing remote access from 
+        a smartphone or web dashboard.
+    </p>
+    <p><strong>High‑level flow:</strong></p>
+    <ul>
+        <li>Sensors → ESP32 → Automation Logic → Relays → Pump/Fans/Lights</li>
+        <li>ESP32 ↔ Blynk Cloud → Mobile Dashboard (monitoring + manual override)</li>
+    </ul>
+    <h3>4. Automation Logic</h3>
+    <p>
+        The greenhouse uses simple threshold‑based rules to maintain suitable conditions:
+    </p>
+    <ul>
+        <li><strong>Watering:</strong> Pump activates when soil moisture &lt; 28% (or ADC threshold).</li>
+        <li><strong>Cooling:</strong> Fan 1 turns on when temperature &gt; 25 °C.</li>
+        <li><strong>Humidity Control:</strong> Fan 2 runs when humidity &gt; 65%.</li>
+        <li><strong>Lighting:</strong> LED grow lights activate when ambient light &lt; 50 lux (light‑intensity threshold).</li>
+    </ul>
+
+    <h3>5. Programming Core</h3>
+    <p>
+    The ESP32 firmware periodically reads sensors, updates the Blynk dashboard, and applies control logic. Below is a simplified example of the sensor reading and control routine:
+    </p>
+
+    <pre><code>// Sensor Reading samples
+void readSensors() {
+    humidity    = dht.readHumidity();
+    temperature = dht.readTemperature();
+    moisture    = analogRead(SOIL_SENSOR);
+
+    if (moisture &lt; 300) {
+        activatePump();
+    }
+    if (temperature &gt; 28) {
+        activateFan1();
+    }
+    // Additional logic for the humidity, light, etc.
+}
+    </code></pre>
+
+    <h3>6. Remote Monitoring Interface</h3>
+    <p>
+        Using the <strong>Blynk IoT platform</strong>, a custom dashboard was created to visualize data and control the greenhouse remotely.
+    </p>
+    <ul>
+        <li>Live temperature and humidity gauges</li>
+        <li>Soil moisture percentage display</li>
+        <li>Manual override switches for pump, fans, and lights</li>
+        <li>Status indicators for automation events</li>
+    </ul>
+
+    <h3>7. Future Improvements</h3>
+    <ul>
+        <li><strong>Machine learning:</strong> Predictive control based on historical data and plant behavior.</li>
+        <li><strong>Solar power integration:</strong> Fully off‑grid operation with energy harvesting.</li>
+        <li><strong>Mobile app notifications:</strong> Push alerts for critical events (low moisture, high temperature, etc.).</li>
+    </ul>
+
+    <h3>8. Skills Demonstrated</h3>
+    <div class="row">
+        <div class="col-6 col-12-small">
+            <ul>
+                <li><strong>Embedded Systems:</strong> ESP32 programming and peripheral interfacing</li>
+                <li><strong>IoT Integration:</strong> Blynk cloud, remote dashboards, and control</li>
+                <li><strong>Sensor Integration:</strong> DHT22, soil moisture, photoresistor</li>
+                <li><strong>Automation:</strong> Rule‑based control of pump, fans, and lights</li>
+                <li><strong>Power Management:</strong> Battery operation and continuous uptime considerations</li>
+                <li><strong>System Design:</strong> Architecture, component selection, and integration</li>
+                <li><strong>Prototyping:</strong> Wiring, relay interfacing, and enclosure planning</li>
+                <li><strong>Debugging:</strong> Handling connectivity issues and sensor calibration</li>
+            </ul>
+        </div>
+    </div>
+
+</div>

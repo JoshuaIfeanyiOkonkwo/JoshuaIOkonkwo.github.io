@@ -1,0 +1,95 @@
+<a href="index.html#robot-vehicle"
+   style="
+       position: fixed;
+       top: 20px;
+       right: 20px;
+       background: #222;
+       color: #fff;
+       padding: 12px 18px;
+       border-radius: 6px;
+       text-decoration: none;
+       font-weight: 600;
+       box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+       z-index: 9999;
+   ">
+   ← Back to Projects
+</a>
+
+<div class="project">
+
+    <h2>Autonomous Robot Vehicle Line Following & Obstacle Avoidance</h2>
+
+    <h3>Project Overview</h3>
+    <p>
+        This project is a compact <strong>autonomous robotic vehicle</strong> built using an 
+        <strong>Arduino</strong>, <strong>L298N motor driver</strong>, <strong>ultrasonic sensor</strong>, 
+        <strong>IR line sensors</strong>, and a <strong>servo‑mounted distance scanner</strong>.  
+        The robot can follow a line, detect obstacles, and make navigation decisions in real time.
+    </p>
+
+    <h3>1. Key Components</h3>
+    <ul>
+        <li><strong>Arduino UNO:</strong> Main controller for all sensors and actuators</li>
+        <li><strong>L298N Motor Driver:</strong> Controls two DC motors</li>
+        <li><strong>HC‑SR04 Ultrasonic Sensor:</strong> Forward distance measurement</li>
+        <li><strong>IR Sensors (x2):</strong> Line following detection</li>
+        <li><strong>Servo Motor:</strong> Rotates ultrasonic sensor for side scanning</li>
+        <li><strong>DC Motors + Wheels:</strong> Robot movement</li>
+        <li><strong>2×AA Battery Pack + Rocker Switch:</strong> Power supply and control</li>
+    </ul>
+
+    <h3>2. System Architecture</h3>
+    <ul>
+        <li>IR Sensors → Arduino → Motor Driver → Motors (line following)</li>
+        <li>Ultrasonic Sensor → Arduino → Servo Scan → Navigation Logic</li>
+        <li>Battery Pack → Rocker Switch → L298N → Arduino (Vin)</li>
+    </ul>
+
+    <h3>3. Core Logic</h3>
+    <p>
+        The robot combines <strong>line following</strong> and <strong>obstacle avoidance</strong>:
+    </p>
+    <ul>
+        <li>Both IR sensors detect line → move forward</li>
+        <li>Left or right IR triggered → turn accordingly</li>
+        <li>Obstacle detected &lt; 10 cm → servo scans left/right → choose clearer path</li>
+    </ul>
+
+    <h3>4. Code Snippet</h3>
+    <pre><code>// IR sensors
+#define L_S A3
+#define R_S A4
+
+// Ultrasonic
+#define echo A2
+#define trigger A1
+
+// Motor driver
+#define enA 5
+#define enB 6
+#define in1 7
+#define in2 8
+#define in3 9
+#define in4 10
+
+// Servo
+#define servo 13
+
+void forword() {
+  digitalWrite(in1, LOW);
+  digitalWrite(in2, HIGH);
+  digitalWrite(in3, HIGH);
+  digitalWrite(in4, LOW);
+}
+    </code></pre>
+
+    <h3>5. Skills Demonstrated</h3>
+    <ul>
+        <li>Embedded programming (Arduino C++)</li>
+        <li>Motor control using L298N</li>
+        <li>Sensor integration (IR + Ultrasonic)</li>
+        <li>Autonomous navigation logic</li>
+        <li>Power distribution and wiring</li>
+    </ul>
+
+</div>

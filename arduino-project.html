@@ -1,0 +1,102 @@
+<a href="index.html#arduino-uno"
+   style="
+       position: fixed;
+       top: 20px;
+       right: 20px;
+       background: #222;
+       color: #fff;
+       padding: 12px 18px;
+       border-radius: 6px;
+       text-decoration: none;
+       font-weight: 600;
+       box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+       z-index: 9999;
+   ">
+   ← Back to Projects
+</a>
+
+<div class="project">
+    <h2>Custom Arduino Uno – 4‑Layer PCB Design & Firmware Bring‑Up</h2>
+    <h3>Project Introduction</h3>
+    <p>In this project, I designed a custom Arduino Uno PCB and performed the complete firmware bring‑up process for both ATmega328P microcontroller and ATmega16U2 USB-to-serial communication on the board. The work covered schematic design, PCB layout, component selection, firmware flashing, and final functional testing.</p>
+    <h3>1. PCB Design</h3>
+    <p>
+        I designed a fully custom 4‑layer Arduino Uno–compatible PCB using KiCad, 
+        following the Arduino Uno R3 architecture while improving layout quality, 
+        signal integrity, and manufacturability.
+    </p>
+    
+
+    <p><strong>Key hardware sections include:</strong></p>
+    <ul>
+        <li>AVR ATmega328P microcontroller subsystem</li>
+        <li>AVR ATmega16U2 USB‑to‑serial interface</li>
+        <li>Power regulation circuitry (5V and 3.3V rails)</li>
+        <li>USB, ISP, and GPIO headers</li>
+        <li>Optimized routing, decoupling, and layer stack‑up</li>
+    </ul>
+
+    <!-- IMAGE ROW -->
+    <div style="display: flex; gap: 20px; margin-top: 20px;">
+        <div style="flex: 1; text-align: center;">
+            <img src="images/frontUno.jpg" alt="Bottom View" style="width: 100%; border-radius: 6px;">
+            <p><strong>Front View</strong></p>
+        </div>
+
+        <div style="flex: 1; text-align: center;">
+            <img src="images/bottomUno.jpg" alt="Front View" style="width: 100%; border-radius: 6px;">
+            <p><strong>Bottom View</strong></p>
+        </div>
+    </div>
+
+    <h3>2. Firmware & Bootloader Programming</h3>
+    <p>After assembling the board, I programmed both microcontrollers:</p>
+    <ul>
+        <li><strong>ATmega16U2:</strong> Flashed the USB‑to‑serial firmware (HEX)</li>
+        <li><strong>ATmega328P:</strong> Burned the Optiboot bootloader (HEX)</li>
+    </ul>
+    <p>
+        The board operated identically to an official Arduino Uno, confirming 
+        successful hardware bring‑up and firmware integration.
+    </p>
+
+    <h3>3. Methods Used</h3>
+
+    <h4>Bootloader Installation on ATmega328P</h4>
+    <ul>
+        <li><strong>Method 1: Arduino Uno as ISP</strong> – Accessible workflow using another Uno.</li>
+        <li><strong>Method 2: AVRISP mkII + Microchip Studio</strong> – Professional AVR programming method.</li>
+    </ul>
+
+    <h4>Flashing USB‑Serial Firmware on ATmega16U2</h4>
+    <ul>
+        <li><strong>FLIP Software:</strong> Used to load the USB‑to‑serial HEX file from the Arduino IDE directory.</li>
+    </ul>
+    <h3>4. Tools Used</h3>
+    <ul>
+        <li><strong>KiCad 7:</strong> Schematic design, PCB layout, routing, DRC checks</li>
+        <li><strong>Atmel/Microchip FLIP:</strong> Flashing USB‑to‑serial firmware to the ATmega16U2</li>
+        <li><strong>Arduino IDE:</strong> Burning the Optiboot bootloader and uploading test sketches</li>
+        <li><strong>AVRDUDE:</strong> Low‑level bootloader flashing and device programming</li>
+        <li><strong>Arduino Uno as ISP:</strong> Used as an in‑circuit programmer for the ATmega328P</li>
+        <li><strong>AVRISP mkII:</strong> Professional AVR programmer for firmware bring‑up</li>
+        <li><strong>Multimeter & Bench Power Supply:</strong> Hardware validation and continuity testing</li>
+        <li><strong>USB Logic Analyzer:</strong> Debugging serial communication and verifying signals</li>
+    </ul>
+
+    <h3>5. Results</h3>
+    <ul>
+        <li>Successful first‑revision bring‑up</li>
+        <li>USB‑serial communication verified</li>
+        <li>All GPIO headers tested and functional</li>
+        <li>Bootloader and sketch uploading fully operational</li>
+    </ul>
+
+    <h3>6. Key Learnings</h3>
+    <ul>
+        <li>Multi‑layer PCB stack‑up and routing strategies</li>
+        <li>USB differential pair routing and decoupling</li>
+        <li>AVR bootloader workflows and firmware flashing</li>
+        <li>Hardware debugging and validation techniques</li>
+    </ul>
+</div>

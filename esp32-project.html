@@ -1,0 +1,102 @@
+<a href="index.html#esp32-project"
+   style="
+       position: fixed;
+       top: 20px;
+       right: 20px;
+       background: #222;
+       color: #fff;
+       padding: 12px 18px;
+       border-radius: 6px;
+       text-decoration: none;
+       font-weight: 600;
+       box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+       z-index: 9999;
+   ">
+   ← Back to Projects
+</a>
+
+<div class="project">
+    
+    <h2>ESP32‑Based Environmental Sensor with WiFi IoT</h2>
+    <h3>1. Project Introduction</h3>
+    <p>
+        In this project, I designed and assembled a custom 4‑layer IoT development board built around the ESP32‑C3 microcontroller. The board integrates multiple sensors, precision analog circuitry, flexible storage options, and robust power management, making it suitable for real‑time classification and edge decision‑making without relying on cloud services.
+    </p>
+    <!-- IMAGE ROW -->
+    <div style="display: flex; gap: 20px; margin-top: 20px;">
+        <div style="flex: 1; text-align: center;">
+            <img src="images/front_exp32.jpg" alt="Front View" style="width: 100%; border-radius: 6px;">
+            <p><strong>3D Top View</strong></p>
+        </div>
+
+        <div style="flex: 1; text-align: center;">
+            <img src="images/bottom_esp32.jpg" alt="Bottom View" style="width: 100%; border-radius: 6px;">
+            <p><strong>3D Bottom View</strong></p>
+        </div>
+    </div>
+        <h3>ESP32-based Sensor PCB Layout Views</h3>
+    <p>Below are the top and bottom copper layers of the Board:</p>
+
+    <div style="display: flex; gap: 20px; margin-top: 20px;">
+        <div style="flex: 1; text-align: center;">
+            <img src="images/esp32_top_layout.jpg" alt="Top Layer Layout" style="width: 100%; border-radius: 6px;">
+            <p><strong>Top Signal Layout</strong></p>
+        </div>
+
+        <div style="flex: 1; text-align: center;">
+            <img src="images/esp32_bottom_layout.jpg" alt="Bottom Layer Layout" style="width: 100%; border-radius: 6px;">
+            <p><strong>Bottom Signal Layout</strong></p>
+        </div>
+    </div>
+
+    <h3>2. PCB Design Overview</h3>
+    <p>The board is engineered as a medium‑complexity, four‑layer design featuring:</p>
+
+    <ul>
+        <li>ESP32‑C3 SoC with Wi‑Fi and BLE connectivity</li>
+        <li>Environmental and ambient sensors</li>
+        <li>Onboard SPI flash memory and microSD card storage</li>
+        <li>USB‑C power and data interface</li>
+        <li>LiPo battery support with charging and protection circuitry</li>
+        <li>3.3V and 5V regulated power rails</li>
+        <li>USB‑to‑UART bridge for programming and debugging</li>
+        <li>Boot and reset buttons, GPIO header, and status LEDs</li>
+        <li>Test points for debugging and validation</li>
+    </ul>
+
+    <p>
+        The 4‑layer stackup includes dedicated power and ground planes to improve signal 
+        integrity, reduce noise, and support high‑speed digital routing. Component placement 
+        and routing were optimized for manufacturability, thermal performance, and clean 
+        signal paths.
+    </p>
+
+    <h3>3. ESP32 Sensor Board Features</h3>
+    <ul>
+        <li><strong>Microcontroller:</strong> ESP32‑C3 with Wi‑Fi and BLE</li>
+        <li><strong>Power:</strong> USB‑C input, LiPo battery connector, onboard 3.3V and 5V regulation</li>
+        <li><strong>Storage:</strong> MicroSD card slot and SPI flash memory</li>
+        <li><strong>Sensors:</strong> BME280 (temperature, humidity, pressure)</li>
+        <li><strong>Interfaces:</strong> I2C, SPI, USB‑to‑UART bridge</li>
+        <li><strong>User Interaction:</strong> Boot and reset buttons, GPIO header, status LEDs</li>
+        <li><strong>PCB Design:</strong> 4‑layer stackup, optimized layout, test points for debugging</li>
+    </ul>
+    <h3>4. Tools Used</h3>
+    <ul>
+        <li><strong>KiCad 7:</strong> Schematic design, PCB layout, 4‑layer stackup, DRC checks</li>
+        <li><strong>ESP-IDF / Arduino Core:</strong> Firmware development and testing</li>
+        <li><strong>PlatformIO:</strong> Build system and project environment</li>
+        <li><strong>J-Link / USB‑to‑UART:</strong> Programming and debugging interface</li>
+        <li><strong>Logic Analyzer:</strong> Signal inspection and protocol debugging (I2C/SPI/UART)</li>
+        <li><strong>Multimeter & Bench Power Supply:</strong> Hardware bring‑up and validation</li>
+        <li><strong>3D Viewer (KiCad):</strong> Mechanical clearance and component placement checks</li>
+    </ul>
+    <h3>5. Potential Applications</h3>
+    <ul>
+        <li><strong>Smart Home Monitoring:</strong> Detect environmental anomalies using onboard sensors.</li>
+        <li><strong>Environmental Data Analysis:</strong> Perform on‑board classification of air quality or ambient conditions.</li>
+        <li><strong>Portable IoT Devices:</strong> Battery‑powered field sensors for agriculture, research, or wearables.</li>
+        <li><strong>Edge AI Applications:</strong> Use the ESP32‑C3 with AI‑enabled libraries for voice control or contextual insights.</li>
+    </ul>
+</div>
+

@@ -1,0 +1,96 @@
+<a href="index.html#heart-monitor"
+   style="
+       position: fixed;
+       top: 20px;
+       right: 20px;
+       background: #222;
+       color: #fff;
+       padding: 12px 18px;
+       border-radius: 6px;
+       text-decoration: none;
+       font-weight: 600;
+       box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+       z-index: 9999;
+   ">
+   ← Back to Projects
+</a>
+
+<div class="project">
+
+    <h2>Analog Heart‑Rate / ECG Monitor – Multi‑Stage Biomedical Signal System</h2>
+
+    <h3>Project Introduction</h3>
+    <p>
+        This project is an <strong>analog ECG heart‑rate monitor</strong>system that captures, amplifies, filters, and displays real‑time ECG waveforms using 
+        fully analog circuitry combined with a microcontroller‑based interface.
+    </p>
+    <!-- IMAGE ROW -->
+    <div style="display: flex; gap: 20px; margin-top: 20px;">
+        <div style="flex: 1; text-align: center;">
+            <img src="images/Heart_rate_monitor_top_view.jpg" alt="ECG Device Final Product" style="width: 100%; border-radius: 6px;">
+            <p><strong>ECG Monitor 3D Top view</strong></p>
+        </div>
+
+        <div style="flex: 1; text-align: center;">
+            <img src="images/heart_rate_monitoring_bottom_view.jpg" alt="ECG Waveform Display" style="width: 100%; border-radius: 6px;">
+            <p><strong>ECG Monitor 3D Bottom view</strong></p>
+        </div>
+    </div>
+    <div style="display: flex; gap: 20px; margin-top: 20px;">
+        <div style="flex: 1; text-align: center;">
+            <img src="images/heart_rate_pcb_layout.jpg" alt="ECG Device Final Product" style="width: 100%; border-radius: 6px;">
+            <p><strong> Top Signal Layout</strong></p>
+        </div>
+
+        <div style="flex: 1; text-align: center;">
+            <img src="images/heart_rate_bottom_layout.jpg" alt="ECG Waveform Display" style="width: 100%; border-radius: 6px;">
+            <p><strong>Bottom signal Layout</strong></p>
+        </div>
+    </div>
+
+    <h3>1. System Overview</h3>
+    <p>
+        The ECG system consists of <strong>five major analog signal‑processing blocks</strong>:
+    </p>
+    <ul>
+        <li>Right Leg Drive (DRL) Circuit</li>
+        <li>Instrumentation Amplifier</li>
+        <li>Low‑Pass Filter</li>
+        <li>High‑Pass Filter</li>
+        <li>Notch Filter</li>
+    </ul>
+
+    <p>
+        These stages work together to extract the heart’s electrical activity, suppress noise, and produce a 
+        clean ECG waveform suitable for display and analysis.
+    </p>
+
+    <h3>2. PCB Design</h3>
+    <p>
+        A <strong>4‑layer PCB</strong> was designed to ensure signal integrity, proper grounding, and thermal 
+        management. Power and ground planes were strategically placed to minimize noise and interference. 
+        Sensitive analog traces were routed with care to avoid crosstalk and maintain ECG fidelity.
+    </p>
+
+    <h3>3. Testing & Final Results</h3>
+    <p>
+        The circuit was first built on breadboards for stage‑by‑stage validation. Using an oscilloscope, we 
+        fine‑tuned filter parameters and notch frequency. The final device produced clean, accurate ECG 
+        waveforms comparable to a commercial patient monitor.
+    </p>
+
+    <h3>4. Skills Demonstrated</h3>
+    <div class="row">
+        <div class="col-6 col-12-small">
+            <ul>
+                <li><strong>Analog Circuit Design:</strong> Multi‑stage biomedical signal chain</li>
+                <li><strong>Filter Design:</strong> Bessel, Butterworth, and Twin‑T filters</li>
+                <li><strong>Instrumentation Amplifiers:</strong> High‑CMRR differential amplification</li>
+                <li><strong>PCB Design:</strong> 4‑layer mixed‑signal layout</li>
+                <li><strong>Testing:</strong> Oscilloscope waveform analysis</li>
+                <li><strong>Biomedical Engineering:</strong> ECG acquisition & noise suppression</li>
+            </ul>
+        </div>
+    </div>
+
+</div>

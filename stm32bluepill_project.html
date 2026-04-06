@@ -1,0 +1,81 @@
+<a href="index.html#stm32_DT11_project"
+   style="
+       position: fixed;
+       top: 20px;
+       right: 20px;
+       background: #222;
+       color: #fff;
+       padding: 12px 18px;
+       border-radius: 6px;
+       text-decoration: none;
+       font-weight: 600;
+       box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+       z-index: 9999;
+   ">
+   ← Back to Projects
+</a>
+<div class="project">
+    <h2>STM32F103C8T6 Blue Pill – DHT11 Temperature & Humidity Sensor</h2>
+
+    <!-- IMAGE ROW -->
+    <div style="display: flex; gap: 20px; margin-top: 20px;">
+        <div style="flex: 1; text-align: center;">
+            <img src="images/stm32_first.jpg" alt="Front View" style="width: 100%; border-radius: 6px;">
+            <p><strong>3D Project View</strong></p>
+        </div>
+
+        <div style="flex: 1; text-align: center;">
+            <img src="images/stm32_layout.jpg" alt="Bottom View" style="width: 100%; border-radius: 6px;">
+            <p><strong>PCB Layout View</strong></p>
+        </div>
+    </div>
+
+    <h3>1. Project Overview</h3>
+    <p>
+        This project uses the <strong>STM32F103C8T6 Blue Pill</strong> microcontroller to interface with the 
+        <strong>DHT11 temperature and humidity sensor</strong>. The goal was to build a simple, low‑cost, 
+        real‑time environmental monitoring system using STM32 bare‑metal programming and digital sensor 
+        communication.
+    </p>
+
+    <p>
+        The system reads temperature and humidity values from the DHT11 sensor, processes the data on the 
+        STM32, and outputs the results through serial communication for logging or visualization.
+    </p>
+
+    <h3>2. Hardware Components</h3>
+    <ul>
+        <li><strong>STM32F103C8T6 Blue Pill:</strong> ARM Cortex‑M3 microcontroller</li>
+        <li><strong>DHT11 Sensor:</strong> Digital temperature & humidity sensor</li>
+        <li>3.3V regulated power supply</li>
+        <li>GPIO pin for single‑wire DHT11 communication</li>
+        <li>USB‑to‑UART interface for serial output</li>
+        <li>Pull‑up resistor for stable data line communication</li>
+    </ul>
+
+    <h3>3. Firmware & Signal Processing</h3>
+    <p>The firmware implements the DHT11 single‑wire protocol using STM32 GPIO timing:</p>
+
+    <ul>
+        <li>Start signal generation from STM32</li>
+        <li>Precise microsecond‑level timing using SysTick</li>
+        <li>Reading 40‑bit DHT11 data frame</li>
+        <li>Extracting temperature and humidity values</li>
+        <li>Error checking and checksum validation</li>
+        <li>Serial output via UART for monitoring</li>
+    </ul>
+
+    <p>
+        This project demonstrates low‑level timing control, digital communication, and embedded firmware 
+        development on ARM Cortex‑M microcontrollers.
+    </p>
+
+    <h3>4. Applications</h3>
+    <ul>
+        <li>Home temperature & humidity monitoring</li>
+        <li>Weather stations</li>
+        <li>IoT environmental sensing nodes</li>
+        <li>Educational embedded systems projects</li>
+        <li>Data logging and sensor calibration experiments</li>
+    </ul>
+</div>

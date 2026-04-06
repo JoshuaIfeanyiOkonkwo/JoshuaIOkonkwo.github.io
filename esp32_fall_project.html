@@ -1,0 +1,84 @@
+<a href="index.html#esp32_fall_project"
+   style="
+       position: fixed;
+       top: 20px;
+       right: 20px;
+       background: #222;
+       color: #fff;
+       padding: 12px 18px;
+       border-radius: 6px;
+       text-decoration: none;
+       font-weight: 600;
+       box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+       z-index: 9999;
+   ">
+   ← Back to Projects
+</a>
+
+<div class="project">
+    <h2>ESP32‑C3 Fall Detection Board (ADXL335 Integration)</h2>
+    
+    <h3>1. Project Introduction</h3>
+    <p>
+        Building on the original ESP32‑based 4‑layer IoT development board, I integrated the 
+        <strong>ADXL335 analog accelerometer</strong>. This modification transforms the board into a compact, 
+        low‑power fall detection platform capable of real‑time motion analysis and threshold‑based 
+        event detection. The goal was to create a dedicated edge‑processing device suitable for 
+        safety wearables and industrial worker protection.
+    </p>
+    <!-- IMAGE ROW -->
+    <div style="display: flex; gap: 20px; margin-top: 20px;">
+        <div style="flex: 1; text-align: center;">
+            <img src="images/esp32_fall_front.jpg" alt="Front View" style="width: 100%; border-radius: 6px;">
+            <p><strong>3D View</strong></p>
+        </div>
+
+        <div style="flex: 1; text-align: center;">
+            <img src="images/esp32_fall_topview.jpg" alt="Bottom View" style="width: 100%; border-radius: 6px;">
+            <p><strong>PCB Layout</strong></p>
+        </div>
+    </div>
+    </div>
+    <h3>2. Hardware Components</h3>
+    <ul>
+        <li><strong>ADXL335:</strong> 3‑axis analog accelerometer with filtering capacitors</li>
+        <li>Routed X, Y, Z analog outputs to ESP32‑C3 ADC inputs</li>
+        <li>Optimized PCB layout for clean analog signal paths and reduced noise</li>
+        <li>USB‑C power input and LiPo battery support</li>
+        <li>Onboard 3.3V and 5V regulators for stable operation</li>
+        <li>GPIO headers and test points for debugging and algorithm development</li>
+    </ul>
+
+    <p>
+        The resulting design is simpler, more power‑efficient, and tailored specifically for 
+        motion and impact detection.
+    </p>
+
+    <h3>3. Firmware & Signal Processing</h3>
+    <p>The ESP32‑C3 samples the ADXL335 outputs using its ADC channels. The firmware implements:</p>
+
+    <ul>
+        <li>Continuous 3‑axis acceleration sampling</li>
+        <li>High‑pass and low‑pass filtering for noise reduction</li>
+        <li>Threshold‑based fall detection logic</li>
+        <li>Optional classification routines to distinguish falls from normal movement</li>
+        <li>Wireless notification via Wi‑Fi or BLE</li>
+    </ul>
+
+    <p>
+        This enables real‑time fall detection entirely on the edge, without cloud dependency.
+    </p>
+
+    <h3>4. Applications</h3>
+    <ul>
+        <li>Fall detection devices</li>
+        <li>Worker safety monitoring in industrial environments</li>
+        <li>Sports impact detection and motion analysis</li>
+        <li>Portable IoT devices requiring low‑power motion sensing</li>
+    </ul>
+
+    <p>
+        By combining the ESP32‑C3’s wireless capabilities with the ADXL335’s analog responsiveness, 
+        the system provides a reliable and efficient platform for safety‑focused IoT applications.
+    </p>
+</div>
