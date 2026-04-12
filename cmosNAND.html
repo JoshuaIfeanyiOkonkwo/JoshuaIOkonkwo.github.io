@@ -1,0 +1,156 @@
+<a href="index.html#cmosNAND"
+   style="
+       position: fixed;
+       top: 20px;
+       right: 20px;
+       background: #222;
+       color: #fff;
+       padding: 12px 18px;
+       border-radius: 6px;
+       text-decoration: none;
+       font-weight: 600;
+       box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+       z-index: 9999;
+   ">
+   ← Back to Projects
+</a>
+
+<section id="project-cmos-nand">
+  <h1>CMOS NAND Gate Schematic, Layout &amp; Transient Simulation</h1>
+
+  <h2>Overview</h2>
+  <p>
+    This project demonstrates the complete design flow of a CMOS 2-input NAND gate using Cadence Virtuoso.
+    The work includes transistor-level schematic design, testbench creation, physical layout implementation,
+    DRC/LVS verification, and transient simulation using Spectre. The goal was to implement a fully functional
+    NAND gate and validate its behavior through waveform analysis.
+  </p>
+
+  <h2>Objectives</h2>
+  <ul>
+    <li>Implement a CMOS NAND gate using PMOS and NMOS transistors.</li>
+    <li>Create a testbench with realistic input sources.</li>
+    <li>Perform transient simulation to verify logic behavior.</li>
+    <li>Design the physical layout following PDK design rules.</li>
+    <li>Validate the layout using DRC checks.</li>
+  </ul>
+
+  <h2>Tools &amp; Technologies</h2>
+  <ul>
+    <li>Cadence Virtuoso (Schematic, Layout, ADE)</li>
+    <li>Spectre Simulator</li>
+    <li>CMOS PDK (gpdk090)</li>
+    <li>Assura verification</li>
+  </ul>
+
+  <h2>Design Methodology</h2>
+
+  <h3>1. Transistor-Level Schematic</h3>
+  <p>
+    The 2-input NAND gate is implemented using complementary CMOS logic:
+  </p>
+  <ul>
+    <li>PMOS transistors connected in <strong>parallel</strong> between Vdd and the output node.</li>
+    <li>NMOS transistors connected in <strong>series</strong> between the output node and ground.</li>
+  </ul>
+    <div style="display: flex; gap: 20px; margin-top: 20px;">
+  <div style="flex: 1; text-align: center;">
+    <img src="images/cmos_NAND_schematic.jpg"
+         alt="Transistor-level schematic of the CMOS NAND gate"
+         style="width: 80%; border-radius: 6px;">
+    <p><strong>Transistor-level schematic of the CMOS 2-input NAND gate.</strong></p>
+  </div>
+</div>
+  <h3>2. Testbench Setup</h3>
+  <p>
+    A dedicated testbench was created to verify the NAND gate:
+  </p>
+  <ul>
+    <li>Two pulse voltage sources drive inputs <strong>Va</strong> and <strong>Vb</strong>.</li>
+    <li>Input characteristics:
+      <ul>
+        <li>Voltages: minimum of 0&nbsp;V and maximum of 1&nbsp;V</li>
+        <li>Rise time: 50&nbsp;ps</li>
+        <li>Fall time: 50&nbsp;ps</li>
+      </ul>
+    </li>
+    <li>Supply voltage: <strong>Vdd = 1&nbsp;V DC</strong>.</li>
+    <li>Output node <strong>Vout</strong> is probed during transient simulation.</li>
+  </ul>
+  <p>
+    The testbench applies all four input combinations (00, 01, 10, 11) to validate the NAND truth table.
+  </p>
+    <div style="display: flex; gap: 20px; margin-top: 20px;">
+  <div style="flex: 1; text-align: center;">
+    <img src="images/cmos_NAND_schematics.jpg"
+         alt="Transistor-level schematic of the CMOS NAND gate"
+         style="width: 80%; border-radius: 6px;">
+    <p><strong>Testbench schematic used for transient simulation of the NAND gate.</strong></p>
+  </div>
+</div>
+  <h3>3. Physical Layout</h3>
+  <p>
+    The physical layout of the NAND gate was implemented following the PDK design rules:
+  </p>
+  <ul>
+    <li>Defined PMOS and NMOS active regions in their respective wells.</li>
+    <li>Placed polysilicon gates, contacts, and metal interconnects.</li>
+    <li>Respected spacing, enclosure, and alignment constraints.</li>
+    <li>Ran:
+      <ul>
+        <li><strong>DRC (Design Rule Check)</strong> – no violations.</li>
+        <li><strong>LVS (Layout vs. Schematic)</strong> – layout matches schematic.</li>
+      </ul>
+    </li>
+  </ul>
+  <p>
+    The final layout represents a clean, manufacturable standard-cell style NAND gate.
+  </p>
+<div style="display: flex; gap: 20px; margin-top: 20px;">
+  <div style="flex: 1; text-align: center;">
+    <img src="images/cmos_NAND_layout.jpg"
+         alt="CMOS NAND gate layout"
+         style="width: 80%; border-radius: 6px;">
+    <p><strong>CMOS layout showing PMOS and NMOS regions, routing, and contacts.</strong></p>
+  </div>
+</div>
+  <h3>4. Transient Simulation Results</h3>
+  <p>
+    A transient analysis from 0&nbsp;ns to 100&nbsp;ns was performed:
+  </p>
+  <ul>
+    <li>Signals observed: <strong>Va</strong>, <strong>Vb</strong>, and <strong>Vout</strong>.</li>
+    <li><strong>Vout</strong> remains high for all input combinations except when both <strong>Va</strong> and <strong>Vb</strong> are high.</li>
+    <li>Waveforms show clean digital transitions and correct logic levels.</li>
+    <li>Rise/fall times are consistent with the chosen device sizing and loading.</li>
+  </ul>
+  <p>
+    These results confirm the correctness of both the schematic and the extracted layout.
+  </p>
+  <div style="display: flex; gap: 20px; margin-top: 20px;">
+  <div style="flex: 1; text-align: center;">
+    <img src="images/cmos_NAND_tbsim.jpg"
+         alt="Transient simulation waveforms of Va, Vb, and Vout"
+         style="width: 80%; border-radius: 6px;">
+    <p><strong>Transient simulation waveforms for Va, Vb, and Vout demonstrating correct NAND behavior.</strong></p>
+  </div>
+</div>
+
+
+  <h2>Results</h2>
+  <ul>
+    <li>Fully functional CMOS 2-input NAND gate.</li>
+    <li>Verified at schematic and post-layout levels.</li>
+    <li>Clean DRC and LVS reports.</li>
+    <li>Transient waveforms match the expected NAND truth table.</li>
+  </ul>
+
+  <h2>Key Learnings</h2>
+  <ul>
+    <li>Transistor-level implementation of CMOS logic gates.</li>
+    <li>Impact of device sizing on timing and signal integrity.</li>
+    <li>Building and configuring simulation testbenches.</li>
+    <li>Applying layout design rules and running DRC/LVS.</li>
+    <li>Interpreting transient waveforms for digital verification.</li>
+  </ul>
+</section>

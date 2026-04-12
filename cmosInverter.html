@@ -1,0 +1,125 @@
+<a href="index.html#cmosInverter"
+   style="
+       position: fixed;
+       top: 20px;
+       right: 20px;
+       background: #222;
+       color: #fff;
+       padding: 12px 18px;
+       border-radius: 6px;
+       text-decoration: none;
+       font-weight: 600;
+       box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+       z-index: 9999;
+   ">
+   ← Back to Projects
+</a>
+
+<section id="project-cmos-inverter">
+  <h1>CMOS Inverter Schematic, Testbench &amp; Transient Simulation</h1>
+
+  <h2>Overview</h2>
+  <p>
+    This project demonstrates the design and verification of a CMOS inverter using Cadence Virtuoso.
+    The work includes transistor-level schematic creation, a transient-analysis testbench, and waveform
+    verification using the Spectre simulator. The inverter is the fundamental building block of all CMOS
+    digital logic, making it an essential part of any IC design portfolio.
+  </p>
+
+  <h2>Objectives</h2>
+  <ul>
+    <li>Design a CMOS inverter using PMOS and NMOS transistors.</li>
+    <li>Build a testbench with a realistic input pulse source.</li>
+    <li>Simulate the inverter’s transient response.</li>
+    <li>Verify correct logic inversion behavior.</li>
+    <li>Analyze rise/fall times and switching characteristics.</li>
+  </ul>
+
+  <h2>Tools &amp; Technologies</h2>
+  <ul>
+    <li>Cadence Virtuoso (Schematic, ADE)</li>
+    <li>Spectre Simulator</li>
+    <li>CMOS PDK (gpdk090)</li>
+  </ul>
+
+  <h2>Design Methodology</h2>
+
+  <h3>1. Transistor-Level Schematic</h3>
+  <p>
+    The CMOS inverter consists of a PMOS transistor connected between <strong>Vdd</strong> and <strong>Vout</strong>,
+    and an NMOS transistor connected between <strong>Vout</strong> and <strong>Gnd</strong>. Both gates are tied
+    together to form the input <strong>Vin</strong>.
+  </p>
+  <ul>
+    <li>PMOS: w = 120&nbsp;nm, l = 100&nbsp;nm</li>
+    <li>NMOS: w = 120&nbsp;nm, l = 100&nbsp;nm</li>
+    <li>Multiplicity: 1</li>
+  </ul>
+
+  <h3>2. Testbench Setup</h3>
+  <p>
+    A transient simulation testbench was created to evaluate the inverter’s switching behavior:
+  </p>
+  <ul>
+    <li>Input pulse source:
+      <ul>
+        <li>Low level: 0&nbsp;V</li>
+        <li>High level: 1.8&nbsp;V</li>
+        <li>Rise time: 50&nbsp;ps</li>
+      </ul>
+    </li>
+    <li>Supply voltage: <strong>Vdd = 1.8&nbsp;V</strong></li>
+    <li>Output node <strong>Vout</strong> monitored during simulation</li>
+  </ul>
+
+  <h3>3. Transient Simulation Results</h3>
+  <p>
+    The transient analysis confirms correct inverter operation:
+  </p>
+  <ul>
+    <li><strong>Vin = 0&nbsp;V</strong> → PMOS ON, NMOS OFF → <strong>Vout = High</strong></li>
+    <li><strong>Vin = 1.8&nbsp;V</strong> → PMOS OFF, NMOS ON → <strong>Vout = Low</strong></li>
+    <li>Output waveform cleanly inverts the input signal.</li>
+    <li>Full rail-to-rail voltage swing observed.</li>
+  </ul>
+
+  <h2>Results</h2>
+  <ul>
+    <li>Fully functional CMOS inverter.</li>
+    <li>Verified through transient simulation.</li>
+    <li>Correct logic inversion and switching behavior.</li>
+    <li>Demonstrates understanding of CMOS device physics and timing.</li>
+  </ul>
+
+  <h2>Key Learnings</h2>
+  <ul>
+    <li>CMOS inverter operation and transistor behavior.</li>
+    <li>Pulse-source configuration for digital testbenches.</li>
+    <li>Transient simulation setup and waveform interpretation.</li>
+    <li>Rise/fall time and propagation delay analysis.</li>
+  </ul>
+
+  <h2>Images</h2>
+
+  <figure style="text-align: center;">
+    <img src="images/cmos_inverter_schema.jpg"
+         alt="CMOS inverter schematic"
+         style="max-width: 450px; width: 100%; border-radius: 6px;">
+    <figcaption><strong>Transistor-level schematic of the CMOS inverter.</strong></figcaption>
+  </figure>
+
+  <figure style="text-align: center; margin-top: 20px;">
+    <img src="images/cmos_inverter_tb_schema.jpg"
+         alt="CMOS inverter testbench"
+         style="max-width: 450px; width: 100%; border-radius: 6px;">
+    <figcaption><strong>Testbench schematic used for transient simulation.</strong></figcaption>
+  </figure>
+
+  <figure style="text-align: center; margin-top: 20px;">
+    <img src="images/cmos_inverter_tb.jpg"
+         alt="CMOS inverter transient simulation waveforms"
+         style="max-width: 450px; width: 100%; border-radius: 6px;">
+    <figcaption><strong>Transient simulation waveforms showing Vin and Vout.</strong></figcaption>
+  </figure>
+
+</section>
