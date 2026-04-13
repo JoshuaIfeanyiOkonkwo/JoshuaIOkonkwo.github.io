@@ -1,0 +1,133 @@
+<a href="index.html#cmosMUS2X1"
+   style="
+       position: fixed;
+       top: 20px;
+       right: 20px;
+       background: #222;
+       color: #fff;
+       padding: 12px 18px;
+       border-radius: 6px;
+       text-decoration: none;
+       font-weight: 600;
+       box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+       z-index: 9999;
+   ">
+   ← Back to Projects
+</a>
+
+<section id="project-mux-2x1">
+  <h1>2:1 Multiplexer — Transistor-Level CMOS Design, Symbol Creation & Testbench</h1>
+
+  <h2>Overview</h2>
+  <p>
+    This project showcases the complete design flow of a <strong>2-to-1 CMOS multiplexer</strong> using Cadence Virtuoso.
+    The work includes transistor-level schematic implementation, creation of a reusable symbol view, and a functional
+    testbench used to verify correct digital switching behavior. The 2:1 MUX is a fundamental building block in digital
+    systems, enabling signal selection and routing in datapaths and control logic.
+  </p>
+
+  <h2>Objectives</h2>
+  <ul>
+    <li>Design a CMOS 2:1 multiplexer using PMOS and NMOS transistors.</li>
+    <li>Create a clean and reusable symbol view for hierarchical design.</li>
+    <li>Build a testbench with pulse sources for I0, I1, and Sel.</li>
+    <li>Simulate and verify correct output selection behavior.</li>
+    <li>Analyze switching characteristics and logic correctness.</li>
+  </ul>
+
+  <h2>Tools &amp; Technologies</h2>
+  <ul>
+    <li>Cadence Virtuoso (Schematic, Symbol, ADE)</li>
+    <li>Spectre Simulator</li>
+    <li>CMOS PDK (gpdk090)</li>
+  </ul>
+
+  <h2>Design Methodology</h2>
+
+  <h3>1. Transistor-Level Schematic</h3>
+  <p>
+    The multiplexer implements the logic function:
+    <br><strong>Y = Sel·I1 + Sel̅·I0</strong>
+  </p>
+  <p>
+    The CMOS network consists of complementary pull-up and pull-down structures that route either <strong>I0</strong> or
+    <strong>I1</strong> to the output <strong>Y</strong> depending on the select signal <strong>Sel</strong>.
+  </p>
+  <ul>
+    <li>PMOS: w = 120&nbsp;nm, l = 120&nbsp;nm</li>
+    <li>NMOS: w = 120&nbsp;nm, l = 120&nbsp;nm</li>
+    <li>Fully complementary transmission structure</li>
+  </ul>
+
+  <h3>2. Symbol Creation</h3>
+  <p>
+    A custom symbol view was created to represent the MUX at a higher abstraction level. The symbol exposes:
+  </p>
+  <ul>
+    <li><strong>I0</strong> — Input 0</li>
+    <li><strong>I1</strong> — Input 1</li>
+    <li><strong>Sel</strong> — Select line</li>
+    <li><strong>Y</strong> — Output</li>
+    <li><strong>vdd</strong> and <strong>gnd</strong> rails</li>
+  </ul>
+  <p>
+    This symbol is used in the testbench and enables clean hierarchical design.
+  </p>
+
+  <h3>3. Testbench Setup</h3>
+  <p>
+    A functional testbench was built to verify correct multiplexer behavior:
+  </p>
+  <ul>
+    <li>Pulse sources for <strong>I0</strong>, <strong>I1</strong>, and <strong>Sel</strong></li>
+    <li>Supply voltage: <strong>Vdd = 1&nbsp;V</strong></li>
+    <li>Output <strong>Y</strong> monitored during transient simulation</li>
+    <li>Input transitions configured with 100&nbsp;ps rise/fall times</li>
+  </ul>
+
+  <h3>4. Expected Logic Behavior</h3>
+  <ul>
+    <li><strong>Sel = 0</strong> → Output follows <strong>I0</strong></li>
+    <li><strong>Sel = 1</strong> → Output follows <strong>I1</strong></li>
+    <li>Clean switching and correct propagation observed in simulation</li>
+  </ul>
+
+  <h2>Results</h2>
+  <ul>
+    <li>Fully functional CMOS 2:1 multiplexer.</li>
+    <li>Correct logic selection verified through transient simulation.</li>
+    <li>Reusable symbol created for hierarchical design.</li>
+    <li>Demonstrates understanding of CMOS logic design and verification.</li>
+  </ul>
+
+  <h2>Key Learnings</h2>
+  <ul>
+    <li>CMOS implementation of multiplexing logic.</li>
+    <li>Symbol creation and hierarchical schematic design.</li>
+    <li>Digital testbench setup with multiple pulse sources.</li>
+    <li>Transient simulation and waveform interpretation.</li>
+  </ul>
+
+  <h2>Images</h2>
+    <figure style="text-align: center; margin-top: 20px;">
+    <img src="images/MUX_2X1_schematic.jpg"
+         alt="Transistor-level CMOS 2:1 MUX"
+         style="max-width: 450px; width: 100%; border-radius: 6px;">
+    <figcaption><strong>Transistor-level CMOS implementation of the MUX.</strong></figcaption>
+  </figure>
+
+    <figure style="text-align: center; margin-top: 20px;">
+    <img src="images/MUX_2X1_sym.jpg"
+         alt="2:1 MUX symbol"
+         style="max-width: 450px; width: 100%; border-radius: 6px;">
+    <figcaption><strong>Custom symbol view for the 2:1 multiplexer.</strong></figcaption>
+  </figure>
+
+  <figure style="text-align: center;">
+    <img src="images/MUX_2X1_sim_schematic.jpg"
+         alt="2:1 MUX testbench schematic"
+         style="max-width: 450px; width: 100%; border-radius: 6px;">
+    <figcaption><strong>Testbench schematic for the 2:1 multiplexer.</strong></figcaption>
+  </figure>
+
+</section>
